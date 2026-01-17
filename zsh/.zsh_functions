@@ -1,0 +1,22 @@
+# 履歴検索
+function fzf-select-history() {
+    BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER" --reverse --height 40% --border)
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N fzf-select-history
+bindkey '^r' fzf-select-history
+
+# ディレクトリ検索 (z.sh連携)
+function fzf-z-search() {
+    local res=$(z | sort -rn | cut -c 12- | fzf --reverse --height 40% --border --query "$LBUFFER")
+    if [ -n "$res" ]; then
+        cd "$res"
+        zle accept-line
+    fi
+    zle reset-prompt
+}
+zle -N fzf-z-search
+bindkey '^j' fzf-z-search
+
+
