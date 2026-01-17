@@ -1,0 +1,34 @@
+# --- OS generated files ---
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+desktop.ini
+
+# --- Editor / IDE backup files ---
+*~
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# --- Sensitive Information (VERY IMPORTANT) ---
+# 秘密鍵やトークンなどは絶対にGitに入れない
+.ssh/
+*.pem
+*.key
+.netrc
+.env
+.env.*
+!.env.example
+
+
+# --- Application specific logs/cache ---
+*.log
+.cache/
+.npm/
+.yarn/
+
+# --- Temporary files ---
+tmp/
+temp/
